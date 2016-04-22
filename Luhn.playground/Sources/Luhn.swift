@@ -21,7 +21,7 @@
 // THE SOFTWARE.
 
 
-import UIKit
+import Foundation
 
 /**
 A base-independent implementation of the Luhn algorithm for Swift. Useful for generating and verifying check digits in arbitrary bases. https://github.com/serluca/luhn
