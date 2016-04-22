@@ -21,6 +21,7 @@ To integrate Luhn into your Xcode project using CocoaPods, specify it in your Po
 
 ```
 source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
 
 pod 'Luhn'
 ```
@@ -31,6 +32,8 @@ Luhn provides two functions: `verify` and `generate`.
 `generate` calculates the Luhn check character for the given input string in the given base. This character should be appended to the input string to produce a valid Luhn string. 
 
 `verify` tests whether or not a string is a valid Luhn string in the given base. By default, luhn operates in base 10:
+
+To use it, just import Luhn in your project`import Luhn`
 
 # Example
 Clone and open the playground to see a live usage of the library.
