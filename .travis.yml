@@ -5,7 +5,7 @@ xcode_scheme: Luhn
 
 env:
   - ACTION=test  PLATFORM=Mac
-  - ACTION=test  PLATFORM=iOS
+  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone 6'
   - ACTION=build PLATFORM=watchOS DESTINATION='platform=watchOS Simulator,name=Apple Watch - 38mm'
   - ACTION=test  PLATFORM=tvOS    DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'
 
