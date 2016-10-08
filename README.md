@@ -4,7 +4,8 @@ Base indipendent Luhn
 [![Twitter: @serluca](https://img.shields.io/badge/contact-@serluca-blue.svg?style=flat)](https://twitter.com/serluca)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Luhn.svg)](https://img.shields.io/cocoapods/v/Luhn.svg)
+[![Platform](https://img.shields.io/cocoapods/p/Luhn.svg?style=flat)](http://cocoadocs.org/docsets/Luhn)
 
 A base-independent implementation of the Luhn algorithm for Swift. Useful for generating and verifying check digits in arbitrary bases.
 
