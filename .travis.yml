@@ -11,4 +11,3 @@ env:
 
 script:
   - set -o pipefail && xcodebuild -scheme Luhn -destination "$DESTINATION" $ACTION | xcpretty
-  - carthage build --no-skip-current
