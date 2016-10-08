@@ -1,0 +1,6 @@
+language: swift
+
+osx_image: xcode8
+
+xcode_project: Luhn.xcodeproj
+xcode_scheme: Luhn
