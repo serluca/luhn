@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5A3FE9131DA8F6CE00425178 /* Luhn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3FE9091DA8F6CE00425178 /* Luhn.framework */; };
 		5A3FE9181DA8F6CE00425178 /* LuhnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FE9171DA8F6CE00425178 /* LuhnTests.swift */; };
-		5A3FE91A1DA8F6CE00425178 /* Luhn.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A3FE90C1DA8F6CE00425178 /* Luhn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A3FE9241DA8F80200425178 /* Luhn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FE9231DA8F80200425178 /* Luhn.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,12 +24,12 @@
 
 /* Begin PBXFileReference section */
 		5A3FE9091DA8F6CE00425178 /* Luhn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Luhn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A3FE90C1DA8F6CE00425178 /* Luhn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Luhn.h; sourceTree = "<group>"; };
 		5A3FE90D1DA8F6CE00425178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A3FE9121DA8F6CE00425178 /* LuhnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuhnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A3FE9171DA8F6CE00425178 /* LuhnTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuhnTests.swift; sourceTree = "<group>"; };
 		5A3FE9191DA8F6CE00425178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A3FE9231DA8F80200425178 /* Luhn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Luhn.swift; path = Sources/Luhn.swift; sourceTree = SOURCE_ROOT; };
+		5A3FE92A1DA9123E00425178 /* Carthage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Carthage.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +54,7 @@
 		5A3FE8FF1DA8F6CD00425178 = {
 			isa = PBXGroup;
 			children = (
+				5A3FE92A1DA9123E00425178 /* Carthage.xcconfig */,
 				5A3FE90B1DA8F6CE00425178 /* Luhn */,
 				5A3FE9161DA8F6CE00425178 /* LuhnTests */,
 				5A3FE90A1DA8F6CE00425178 /* Products */,
@@ -73,7 +73,6 @@
 		5A3FE90B1DA8F6CE00425178 /* Luhn */ = {
 			isa = PBXGroup;
 			children = (
-				5A3FE90C1DA8F6CE00425178 /* Luhn.h */,
 				5A3FE9231DA8F80200425178 /* Luhn.swift */,
 				5A3FE90D1DA8F6CE00425178 /* Info.plist */,
 			);
@@ -96,7 +95,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A3FE91A1DA8F6CE00425178 /* Luhn.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +223,10 @@
 /* Begin XCBuildConfiguration section */
 		5A3FE91B1DA8F6CE00425178 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A3FE92A1DA9123E00425178 /* Carthage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -264,22 +264,27 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
 		5A3FE91C1DA8F6CE00425178 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A3FE92A1DA9123E00425178 /* Carthage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -311,14 +316,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx appletvos appletvsimulator watchos watchsimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -335,8 +343,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = org.serluca.Luhn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -356,8 +364,8 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = org.serluca.Luhn;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
