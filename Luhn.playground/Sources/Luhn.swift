@@ -29,9 +29,10 @@ A base-independent implementation of the Luhn algorithm for Swift. Useful for ge
 public class Luhn{
 	private static func luhn(string: String, alphabet: String) -> Int {
 		let base: Int = alphabet.characters.count
-		let reversedInts = string.characters.reverse().map { alphabet.indexOf($0) }
-		return reversedInts.enumerate().reduce(0, combine: {(sum, val) in
-			let odd = val.index % 2 == 1
+		let reversedInts = string.characters.reversed().map { alphabet.index(of: $0) }
+		
+		return reversedInts.enumerated().reduce(0, {(sum, val) in
+			let odd = val.offset % 2 == 1
 			return sum + (odd ? ((val.element! / (base/2)) + ((2*val.element!) % base)) : val.element!)
 		}) % base
 	}
@@ -47,11 +48,11 @@ public class Luhn{
 	@return The character to append to the baseString to have a valid Luhn string in the given base
 	*/
 	public static func generate(baseString: String, alphabet: String = "0123456789") -> Character {
-		var d = luhn(baseString + String(alphabet.characterAtIndex(0)), alphabet: alphabet)
+		var d = luhn(string: baseString + String(alphabet.character(at: 0)), alphabet: alphabet)
 		if d != 0 {
 			d = alphabet.characters.count - d
 		}
-		return alphabet.characterAtIndex(d)
+		return alphabet.character(at: d)
 	}
 
 	/**
@@ -63,19 +64,20 @@ public class Luhn{
 	@return A boolean value that indicates wheter or not the string is a valid Lunh string in the given alphabet
 	*/
 	public static func verify(string: String, alphabet: String = "0123456789") -> Bool {
-		return luhn(string, alphabet: alphabet) == 0
+		return luhn(string: string, alphabet: alphabet) == 0
 	}
 }
 
 extension String{
-	func characterAtIndex(index: Int) -> Character {
-		return self[self.startIndex.advancedBy(index)]
+	
+	func character(at index: Int) -> Character {
+		return self[self.index(self.startIndex, offsetBy: index)]
 	}
 	
-	func indexOf(character: Character) -> Int? {
-		let range: Range<String.Index>? = self.rangeOfString(String(character))
-		if let startingIndex = range?.startIndex {
-			return self.startIndex.distanceTo(startingIndex)
+	func index(of character: Character) -> Int? {
+		let range: Range<String.Index>? = self.range(of: String(character))
+		if let startingIndex = range?.lowerBound {
+			return self.distance(from: self.startIndex, to: startingIndex)
 		} else {
 			return nil
 		}
