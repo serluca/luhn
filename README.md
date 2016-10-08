@@ -3,6 +3,8 @@ Base indipendent Luhn
 
 [![Twitter: @serluca](https://img.shields.io/badge/contact-@serluca-blue.svg?style=flat)](https://twitter.com/serluca)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 
 A base-independent implementation of the Luhn algorithm for Swift. Useful for generating and verifying check digits in arbitrary bases.
 
