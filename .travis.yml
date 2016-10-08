@@ -1,0 +1,7 @@
+language: objective-c
+osx_image: xcode8
+xcode_project: Luhn.xcodeproj
+xcode_scheme: Luhn
+
+script:
+  - xcodebuild -scheme Luhn -workspace Luhn.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6' build test | xcpretty
