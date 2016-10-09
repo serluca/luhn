@@ -9,8 +9,8 @@ coverage:
   ignore:
     - LuhnTests/*
   status:
-  	patch:
-    	threshold: 2
+    patch:
+      threshold: 2
 
 comment:
   layout: "header, diff"
