@@ -1,0 +1,21 @@
+codecov:
+  notify:
+    require_ci_to_pass: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "80...90"
+  ignore:
+    - LuhnTests/*
+  status:
+    patch:
+      threshold: 2
+
+comment:
+  layout: "header, diff"
+  behavior: default
+  require_changes: false
+  branches: null
+  flags: null
+  paths: null
