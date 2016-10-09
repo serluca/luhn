@@ -4,13 +4,13 @@ xcode_project: Luhn.xcodeproj
 xcode_scheme: Luhn
 
 env:
-  - ACTION=test  PLATFORM=Mac     DESTINATION='platform=macOS,arch=x86_64'                         COVERAGE=YES
-  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone 6'               COVERAGE=YES
-  - ACTION=build PLATFORM=watchOS DESTINATION='platform=watchOS Simulator,name=Apple Watch - 38mm' COVERAGE=NO
-  - ACTION=test  PLATFORM=tvOS    DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'        COVERAGE=YES
+  - ACTION=test  PLATFORM=Mac     DESTINATION='platform=macOS,arch=x86_64'                         COVERAGE='-enableCodeCoverage YES'
+  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone 6'               COVERAGE='-enableCodeCoverage YES'
+  - ACTION=build PLATFORM=watchOS DESTINATION='platform=watchOS Simulator,name=Apple Watch - 38mm' COVERAGE=''
+  - ACTION=test  PLATFORM=tvOS    DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'        COVERAGE='-enableCodeCoverage YES'
 
 script:
-  - set -o pipefail && xcodebuild -scheme Luhn -destination "$DESTINATION" $ACTION -enableCodeCoverage $COVERAGE | xcpretty
+  - set -o pipefail && xcodebuild -scheme Luhn -destination "$DESTINATION" $ACTION $COVERAGE | xcpretty
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)	
