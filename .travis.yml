@@ -10,4 +10,7 @@ env:
   - ACTION=test  PLATFORM=tvOS    DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'
 
 script:
-  - set -o pipefail && xcodebuild -scheme Luhn -destination "$DESTINATION" $ACTION | xcpretty
+  - set -o pipefail && xcodebuild -scheme Luhn -destination "$DESTINATION" $ACTION -enableCodeCoverage YES | xcpretty
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
