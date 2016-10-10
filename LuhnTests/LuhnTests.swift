@@ -37,8 +37,9 @@ class LuhnTests: XCTestCase {
 		do {
 			_ = try Luhn.verify(string: "7992739871a")
 			XCTFail("Luhn should have thrown for an invalid value")
-		} catch LuhnError.characterNotFound(_, _) {
+		} catch let error as LuhnError {
 			// Test passed
+			XCTAssertNotNil(error)
 		} catch {
 			XCTFail("Luhn did not return the correct error type. Error: \(error)")
 		}
