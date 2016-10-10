@@ -27,13 +27,13 @@ import Foundation
 A base-independent implementation of the Luhn algorithm for Swift. Useful for generating and verifying check digits in arbitrary bases. https://github.com/serluca/luhn
 */
 public class Luhn{
-	private static func luhn(string: String, alphabet: String) -> Int {
+	private static func luhn(string: String, alphabet: String) throws -> Int {
 		let base: Int = alphabet.characters.count
-		let reversedInts = string.characters.reversed().map { alphabet.index(of: $0) }
+		let reversedInts = try string.characters.reversed().map { try alphabet.index(of: $0) }
 		
 		return reversedInts.enumerated().reduce(0, {(sum, val) in
 			let odd = val.offset % 2 == 1
-			return sum + (odd ? ((val.element! / (base/2)) + ((2*val.element!) % base)) : val.element!)
+			return sum + (odd ? ((val.element / (base/2)) + ((2*val.element) % base)) : val.element)
 		}) % base
 	}
 	
@@ -47,8 +47,8 @@ public class Luhn{
 	
 	@return The character to append to the baseString to have a valid Luhn string in the given base
 	*/
-	public static func generate(baseString: String, alphabet: String = "0123456789") -> Character {
-		var d = luhn(string: baseString + String(alphabet.character(at: 0)), alphabet: alphabet)
+	public static func generate(baseString: String, alphabet: String = "0123456789") throws -> Character {
+		var d = try luhn(string: baseString + String(alphabet.character(at: 0)), alphabet: alphabet)
 		if d != 0 {
 			d = alphabet.characters.count - d
 		}
@@ -63,8 +63,8 @@ public class Luhn{
 	
 	@return A boolean value that indicates wheter or not the string is a valid Lunh string in the given alphabet
 	*/
-	public static func verify(string: String, alphabet: String = "0123456789") -> Bool {
-		return luhn(string: string, alphabet: alphabet) == 0
+	public static func verify(string: String, alphabet: String = "0123456789") throws -> Bool {
+		return try luhn(string: string, alphabet: alphabet) == 0
 	}
 }
 
@@ -74,12 +74,11 @@ extension String{
 		return self[self.index(self.startIndex, offsetBy: index)]
 	}
 	
-	func index(of character: Character) -> Int? {
+	func index(of character: Character) throws -> Int {
 		let range: Range<String.Index>? = self.range(of: String(character))
 		if let startingIndex = range?.lowerBound {
 			return self.distance(from: self.startIndex, to: startingIndex)
-		} else {
-			return nil
 		}
+		throw LuhnError.characterNotFound(character, self)
 	}
 }

@@ -72,20 +72,18 @@ Clone and open the playground to see a live usage of the library.
 
 ```
 // Genereta a value to have a valid luhn using the decimal alphabet
-Luhn.generate(baseString: "7992739871") // Generate 3
+try Luhn.generate(baseString: "7992739871") // Generate 3
 
 // Verify if the string is a valid luhn using the decimal alphabet
-Luhn.verify(string: "79927398713") // A valid lunh
-Luhn.verify(string: "79927398714") // An invalid luhn
-
+try Luhn.verify(string: "79927398713") // A valid lunh
+try Luhn.verify(string: "79927398714") // An invalid luhn
 
 // Using a defined alphabet
 let alphabet = "abcdefghijklmnopqrstuvwxyz"
-Luhn.generate(baseString: "swift", alphabet: alphabet) // Returns l
-Luhn.verify(string: "swiftl", alphabet: alphabet) // A valid luhn
-Luhn.verify(string: "swiftz", alphabet: alphabet) // An invalid luhn
+try Luhn.generate(baseString: "swift", alphabet: alphabet) // Returns l
+try Luhn.verify(string: "swiftl", alphabet: alphabet) // A valid luhn
+try Luhn.verify(string: "swiftz", alphabet: alphabet) // An invalid luhn
 ```
-
 
 # Special Thanks
 Special thanks to @benhodgson

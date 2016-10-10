@@ -6,8 +6,10 @@ coverage:
   precision: 2
   round: down
   range: "80...90"
+  
   ignore:
     - LuhnTests/*
+    
   status:
     patch:
       threshold: 2

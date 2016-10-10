@@ -10,6 +10,7 @@
 		5A3FE9131DA8F6CE00425178 /* Luhn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3FE9091DA8F6CE00425178 /* Luhn.framework */; };
 		5A3FE9181DA8F6CE00425178 /* LuhnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FE9171DA8F6CE00425178 /* LuhnTests.swift */; };
 		5A3FE9241DA8F80200425178 /* Luhn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3FE9231DA8F80200425178 /* Luhn.swift */; };
+		5AF5D54F1DABEEA600E86D8E /* Luhn+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5D54E1DABEEA600E86D8E /* Luhn+Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +31,7 @@
 		5A3FE9191DA8F6CE00425178 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A3FE9231DA8F80200425178 /* Luhn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Luhn.swift; path = Sources/Luhn.swift; sourceTree = SOURCE_ROOT; };
 		5A3FE92A1DA9123E00425178 /* Carthage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Carthage.xcconfig; sourceTree = "<group>"; };
+		5AF5D54E1DABEEA600E86D8E /* Luhn+Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Luhn+Error.swift"; path = "Sources/Luhn+Error.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				5A3FE9231DA8F80200425178 /* Luhn.swift */,
+				5AF5D54E1DABEEA600E86D8E /* Luhn+Error.swift */,
 				5A3FE90D1DA8F6CE00425178 /* Info.plist */,
 			);
 			path = Luhn;
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A3FE9241DA8F80200425178 /* Luhn.swift in Sources */,
+				5AF5D54F1DABEEA600E86D8E /* Luhn+Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
