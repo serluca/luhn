@@ -2,7 +2,7 @@ Base indipendent Luhn
 ===
 
 [![Twitter: @serluca](https://img.shields.io/badge/contact-@serluca-blue.svg?style=flat)](https://twitter.com/serluca)
-[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/serluca/luhn/blob/master/LICENSE)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Luhn.svg)](https://cocoapods.org/pods/Luhn)
 [![Platform](https://img.shields.io/cocoapods/p/Luhn.svg?style=flat)](http://cocoadocs.org/docsets/Luhn)
@@ -18,6 +18,8 @@ From Wikipedia:
 > The Luhn algorithm or Luhn formula, also known as the "modulus 10" or "mod 10" algorithm, is a simple checksum formula used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, National Provider Identifier numbers in US and Canadian Social Insurance Numbers
 
 # Installation
+
+### Cocoapods
 [CocoaPods](https://github.com/CocoaPods/CocoaPods) is a dependency manager for Cocoa projects. You can install it with the following command:
 
 `$ gem install cocoapods`
@@ -30,6 +32,31 @@ use_frameworks!
 
 pod 'Luhn'
 ```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```
+$ brew update
+$ brew install carthage
+```
+
+To integrate Luhn into your Xcode project using Carthage, specify it in your Cartfile file:
+
+```
+github "serluca/Luhn"
+```
+
+### Swift Package Manager
+
+[Swift Package Manager](https://swift.org/package-manager) coming soon.
+
+### Manually
+
+[Download](https://github.com/serluca/Luhn/archive/master.zip) the project and copy the `Sources` folder content into your project to use it in.
 
 # Usage
 Luhn provides two functions: `verify` and `generate`.
@@ -45,21 +72,18 @@ Clone and open the playground to see a live usage of the library.
 
 ```
 // Genereta a value to have a valid luhn using the decimal alphabet
-Luhn.generate("6178937299") // Returns 4
+Luhn.generate(baseString: "7992739871") // Generate 3
+
 // Verify if the string is a valid luhn using the decimal alphabet
-Luhn.verify("61789372994") // A valid luhn
-Luhn.verify("61789372995") // An invalid luhn
+Luhn.verify(string: "79927398713") // A valid lunh
+Luhn.verify(string: "79927398714") // An invalid luhn
+
 
 // Using a defined alphabet
-Luhn.verify("61789372994", alphabet: "0123456789") // A valid luhn
-Luhn.verify("61789372995", alphabet: "0123456789") // An invalid luhn
-
-// Defining a custom alphabet
 let alphabet = "abcdefghijklmnopqrstuvwxyz"
-Luhn.generate("swift", alphabet: alphabet) // Returns l
-Luhn.verify("swiftl", alphabet: alphabet) // A valid luhn
-Luhn.verify("swiftz", alphabet: alphabet) // An invalid luhn
-
+Luhn.generate(baseString: "swift", alphabet: alphabet) // Returns l
+Luhn.verify(string: "swiftl", alphabet: alphabet) // A valid luhn
+Luhn.verify(string: "swiftz", alphabet: alphabet) // An invalid luhn
 ```
 
 
