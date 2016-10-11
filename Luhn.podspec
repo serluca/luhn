@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Luhn'
-  s.version = '2.0.0'
+  s.version = '2.1.0'
   s.license = 'MIT'
   s.summary = 'A base-independent implementation of the Luhn algorithm for Swift. Useful for generating and verifying check digits in arbitrary bases. '
   s.homepage = 'https://github.com/serluca/luhn'
